@@ -109,7 +109,7 @@ body {
 #interface .navigation .profile i {
   margin-right: 20px;
   font-size: 19px;
- 
+
   font-weight: 400;
 }
 #interface .navigation .profile img {
@@ -290,6 +290,9 @@ tbody tr td {
     width: 100%;
     border-collapse: collapse;
   }
+  .box_view {
+    border: 3ps solid green;
+  }
 }
 @media (max-width: 477px) {
   #interface .navigation {
@@ -313,36 +316,120 @@ tbody tr td {
   }
 }
 /* //////////////// */
-.items{
-    position: relative;
-    display: flex;
-    /* border: 4px solid white; */
-    height: 70vh;
-    width: 90%;
-    flex-direction: column;
-    justify-content: space-between;
-    list-style: none;
-    padding: 30px;
-    padding-left: 50px;
+.items {
+  position: relative;
+  display: flex;
+  /* border: 4px solid white; */
+  height: 70vh;
+  width: 90%;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  padding: 30px;
+  padding-left: 50px;
 }
-.a{
+.a {
+  position: absolute;
+  /* margin-left: 15px; */
+  margin-top: 10px;
+  text-decoration: none;
+  color: goldenrod;
+}
+li,
+.a {
+  /* border: 4px solid white; */
+  padding-left: 10px;
+}
+.img {
+  /* position: absolute; */
+  /* border: 3px solid white; */
+  top: 50px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+}
+/* view */
+.display {
+  display: none;
+}
+
+.box_view {
+  border: 3px solid #c2c2c2;
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  left: 30%;
+  top: 18%;
+  z-index: 3;
+  background-color: aliceblue;
+  border-radius: 20px;
+  padding: 10px;
+}
+.nav_view {
+  display: flex;
+  width: 98%;
+  justify-content: space-between;
+}
+.box_img {
+  width: 80px;
+  height: 80px;
+}
+.roll_view {
+  font-size: 30px;
+  margin-top: 35px;
+}
+.personal_detail {
+  height: 70%;
+  margin-top: 55px;
+}
+.text {
+  margin: 20px;
+}
+.exit {
+  position: absolute;
+  font-size: 25px;
+  right: 10px;
+  cursor: pointer;
+}
+span{
+  font-size: 14px;
+  font-weight: 600;
+}
+.img_flex
+{
+  display: flex;
+  justify-content: space-between;
+}
+.img_side{
+  width: 400px;
+  height: 400px;
+}
+/* //media */
+@media only screen and (max-width: 915px) {
+  .box_view {
+    border: 5px solid green;
     position: absolute;
-    /* margin-left: 15px; */
-    margin-top: 10px;
-    text-decoration: none;
-    color: goldenrod;
+    width: 300px;
+    height: 600px;
+    left: 5%;
+    top: 10%;
+    z-index: 3;
+    background-color: aliceblue;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .text {
+    margin-top: 35px;
+  }
+  .personal_detail {
+    position: absolute;
+    left: 0;
+  }
+  .img_side{
+    display: none;
+  }
+  .span
+  {
+    font-size: 1px;
+  }
 }
-li,.a{
-    /* border: 4px solid white; */
-    padding-left: 10px;
-}
-.img{
-    /* position: absolute; */
-    /* border: 3px solid white; */
-    top: 50px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-}
-
-

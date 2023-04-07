@@ -38,8 +38,8 @@ var formdb = firebase.database().ref("USER DATABASE");
 
 let alreadyUser = [];
 
-const row=document.querySelector('.row');
-const usercount=document.querySelector('.usercount');
+const row = document.querySelector(".row");
+const usercount = document.querySelector(".usercount");
 
 formdb.on("value", function (snapshot) {
   snapshot.forEach(function (element) {
@@ -47,23 +47,23 @@ formdb.on("value", function (snapshot) {
       fullName: element.val().FullName,
       mobileNumber: element.val().Mobile,
       email: element.val().Email,
-      roll:element.val().Roll,
+      roll: element.val().Roll,
+      pincode: element.val().Pincode,
+      city: element.val().City,
+      house: element.val().House,
+      road: element.val().Road,
+      landmark: element.val().Landmark,
+      addressType: element.val().AddressType,
     };
-    // console.log(name);
     alreadyUser.push(user);
   });
-  
-  // console.log(alreadyUser.length);
-  usercount.textContent=alreadyUser.length;
+  usercount.textContent = alreadyUser.length;
   displayUser();
 });
 
 const displayUser = function () {
-    row.innerHTML = "";
+  row.innerHTML = "";
   alreadyUser.forEach(function (mov, i) {
- 
-    
- 
     const html = `<tbody>
                 <tr>
                     <td class="People">
@@ -83,10 +83,41 @@ const displayUser = function () {
                 <td class="role">
                 <p>${mov.roll}</p>
                 </td>
-                <td class="edit"><a href="">View</a></td>
+                <td class="edit" ><a href="#" class="view" data-set="${i}">View</a></td>
                 </tr>
        </tbody>`;
-    
-       row.insertAdjacentHTML("beforeend", html);
+
+    row.insertAdjacentHTML("beforeend", html);
   });
 };
+//user data display//
+const n = document.querySelector(".n");
+const ee = document.querySelector(".e");
+const m = document.querySelector(".m");
+const s = document.querySelector(".ss");
+const ce = document.querySelector(".ca");
+const r = document.querySelector(".r");
+const l = document.querySelector(".l");
+const a = document.querySelector(".aa");
+const viewDisplay=document.querySelector(".view_display");
+const exit=document.querySelector(".exit");
+const rollView=document.querySelector(".roll_view");
+row.addEventListener("click", function (e) {
+  const clicked = e.target.closest(".view");
+  let nn = clicked.dataset.set;
+  n.textContent = alreadyUser[nn].fullName;
+  ee.textContent = alreadyUser[nn].email;
+  m.textContent = alreadyUser[nn].mobileNumber;
+  s.textContent = "Tamil Nadu";
+  ce.textContent = alreadyUser[nn].city;
+  r.textContent = alreadyUser[nn].road;
+  l.textContent = alreadyUser[nn].landmark;
+  a.textContent = alreadyUser[nn].addressType;
+  rollView.textContent=alreadyUser[nn].roll;
+  viewDisplay.classList.remove("display");
+});
+exit.addEventListener("click",function(e)
+{
+  e.preventDefault();
+  viewDisplay.classList.add("display");
+})
