@@ -28,7 +28,7 @@
     <section id="interface">
          <div class="navigation">
             <div class="n1">
-                <div>
+                <div class="check">
                     <i id="menu-btn " class="fa-solid fa-bars"></i>
                 </div>
                 <div class="search">
@@ -100,7 +100,7 @@
                     </td>
                     <td class="active">
                      <p>Active</p>
-                    </td>
+                    </td> 
                     <td class="role">
                       <p>Owner</p>
                     </td>
@@ -111,9 +111,14 @@
          </div>
     </section>
     <script>
-        $('#menu-btn').click(function(){
+        $('.check').click(function(){
             $('#menu').toggleClass("active");
         })
+        // const btn=document.querySelector('.fa-solid');
+        // btn.addEventListener('click',function(e)
+        // {
+        //     alert("uygbuhyv")
+        // })
     </script>
 </body>
 </html>  
