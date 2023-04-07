@@ -14,6 +14,14 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <script
+  type="module"
+  src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"
+></script>
+<script
+  type="module"
+  src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+></script>
 <body>
     <section id="menu">
          <div class="logo">
@@ -53,28 +61,28 @@
             <div class="val-box">
                 <i class="fa-solid fa-user"></i>
                 <div>
-                    <h3>8,267</h3>
+                    <h3 class="usercount">0</h3>
                     <span>new Users</span>
                 </div>
             </div>
             <div class="val-box">
                 <i class="fa-thin fa-cart-shopping"></i>
                 <div>
-                    <h3>200,521</h3>
+                    <h3>0</h3>
                     <span>Total orders</span>
                 </div>
             </div>
             <div class="val-box">
                 <i class="fa-brands fa-sellcast"></i>
                 <div>
-                    <h3>215,542</h3>
+                    <h3>0</h3>
                     <span>Product Sell</span>
                 </div>
             </div>
             <div class="val-box">
                 <i class="fa-solid fa-calendar"></i>
                 <div>
-                    <h3>$677.89</h3>
+                    <h3>0</h3>
                     <span>This Month</span>
                 </div>
             </div>
@@ -84,34 +92,37 @@
                 <thead>
                     <tr>
                         <td>Name</td>
-                        <td>Title</td>
+                        <td>Mobile Number</td>
                         <td>Status</td>
-                        <td>role</td>
+                        <td>Role</td>
                         <td></td>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- ///////////// -->
+                <tbody class="row">
                     <tr>
                         <td class="People">
-                        <img src="/image/ph2.jpg" alt="">
+                        <img src="/image/profile.png" alt="">
                         <div class="people-de">
-                        <h5>PonjeevaJ</h5>
-                        <p>jeeva@example.com</p>
+                        <h5></h5>
+                        <p></p>
                         </div>
                     </td>
                     <td class="people-des">
-                        <h5>Software Engineer</h5>
-                        <p>Web dev</p>
+                        <h5></h5>
+                        
                     </td>
                     <td class="active">
-                     <p>Active</p>
+                     <p></p>
                     </td> 
                     <td class="role">
-                      <p>Owner</p>
+                      <p></p>
                     </td>
-                    <td class="edit"><a href="#">Edit</a></td>
+                    <td class="edit"><a href=""></a></td>
                     </tr>
                 </tbody>
+                
+                <!-- //////////////// -->
             </table>
          </div>
     </section>
@@ -121,4 +132,6 @@
         })
     </script>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="/js/script.js"></script>
 </html>  
