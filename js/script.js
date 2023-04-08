@@ -58,7 +58,6 @@ formdb.on("value", function (snapshot) {
     alreadyUser.push(user);
   });
   usercount.textContent = alreadyUser.length;
-  displayUser();
 });
 
 const displayUser = function () {
@@ -99,9 +98,9 @@ const ce = document.querySelector(".ca");
 const r = document.querySelector(".r");
 const l = document.querySelector(".l");
 const a = document.querySelector(".aa");
-const viewDisplay=document.querySelector(".view_display");
-const exit=document.querySelector(".exit");
-const rollView=document.querySelector(".roll_view");
+const viewDisplay = document.querySelector(".view_display");
+const exit = document.querySelector(".exit");
+const rollView = document.querySelector(".roll_view");
 row.addEventListener("click", function (e) {
   const clicked = e.target.closest(".view");
   let nn = clicked.dataset.set;
@@ -113,11 +112,49 @@ row.addEventListener("click", function (e) {
   r.textContent = alreadyUser[nn].road;
   l.textContent = alreadyUser[nn].landmark;
   a.textContent = alreadyUser[nn].addressType;
-  rollView.textContent=alreadyUser[nn].roll;
+  rollView.textContent = alreadyUser[nn].roll;
   viewDisplay.classList.remove("display");
 });
-exit.addEventListener("click",function(e)
-{
+exit.addEventListener("click", function (e) {
   e.preventDefault();
   viewDisplay.classList.add("display");
-})
+});
+
+//Admin Login//
+
+const logIn = document.querySelector(".log_in");
+const values = document.querySelector(".values");
+const board = document.querySelector(".board");
+const loginView = document.querySelector(".login");
+const adminId = document.querySelector(".input");
+const error = document.querySelector(".error");
+logIn.addEventListener("click", function () {
+  const id = adminId.value.toLowerCase();
+  if (id === "surya-2002-a" || id === "ponjeeva-2002-a") {
+    values.classList.remove("display");
+    board.classList.remove("display");
+    loginView.classList.add("display");
+    error.classList.add("display");
+    displayUser();
+  } else {
+    error.classList.remove("display");
+  }
+});
+adminId.addEventListener("keydown", function (e) {
+  const id = adminId.value.toLowerCase();
+  if (e.key === "Enter") {
+    if (id === "surya-2002-a" || id === "ponjeeva-2002-a") {
+      values.classList.remove("display");
+      board.classList.remove("display");
+      loginView.classList.add("display");
+      error.classList.add("display");
+      displayUser();
+    } else {
+      error.classList.remove("display");
+    }
+  }
+  if(e.key==="Backspace")
+  {
+    error.classList.add("display");
+  }
+});

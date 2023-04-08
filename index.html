@@ -57,7 +57,7 @@
          <h3 class="i-name">
            Dashboard
          </h3>
-         <div class="values">
+         <div class="values display">
             <div class="val-box">
                 <i class="fa-solid fa-user"></i>
                 <div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
          </div>
-         <div class="board">
+         <div class="board display">
             <table width="100%">
                 <thead>
                     <tr>
@@ -155,11 +155,19 @@
 
         </div>
     </section>
+    <div class="login">
+        <label for="">Enter Admin Login ID:</label>
+        <input type="text" class="input">
+        <i class="fa-solid fa-arrow-right fa-beat log_in"></i>
+        <p class="error display">Your are not Admin</p>
+    </div>
+    
     <script>
         $('.check').click(function(){
             $('#menu').toggleClass("active");
         })
     </script>
+    
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
 <script src="/js/script.js"></script>
