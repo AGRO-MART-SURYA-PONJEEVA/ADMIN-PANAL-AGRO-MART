@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delivery Person Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- /////////////// -->
+	<script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+    ></script>
+	<link rel="icon" type="image/icon" href="image/delivery.png" />
+</head>
+<body>
+    <header>
+		<div class="logo">
+			<img src="/image/delivery-man.png" alt="My Logo">
+			<h1>Agro Mart(Delivery Section)</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Orders</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="container login">
+		<h1>Delivery Person Login</h1>
+		<form action="">
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" class="UserName" required>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" class="passwordCheck" required>
+			<input type="submit" value="Log In" class="logInUser">
+		</form>
+		<p>Don't have an account yet? <a href="#signup" class="signup">Sign up here</a>.</p>
+	</div>
+	<div id="signup" class="container create display">
+		<h1>Delivery Person Sign Up</h1>
+		<form action="">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" class="name" required>
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" class="email" required>
+			<label for="phone">Phone</label>
+			<input type="tel" id="phone" name="phone" class="phone" required>
+			<label for="username2">Password</label>
+			<input type="password" id="username2" name="username2" class="password" required>
+			<label for="password2">Confirm Password</label>
+			<input type="password" id="password2" name="password2" class="conpassword" required>
+			<input type="submit" value="Sign Up" class="sign">
+		</form>
+		<p>Already have an account? <a href="#" class="log">Log in here</a>.</p>
+	</div>
+
+    <div class="container1 display">
+		<h1>Two Number Checker</h1>
+		<form action="" method="POST">
+			<label for="num1">Enter First Number:</label>
+			<input type="number" id="num1" name="num1" required>
+			<label for="num2">Enter Second Number:</label>
+			<input type="number" id="num2" name="num2" required>
+			<input type="submit" value="Check">
+		</form>
+	</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="/script.js"></script>
+<!-- <script src="/deliveryList.html"></script> -->
+</html>
