@@ -1,5 +1,6 @@
 "use strict";
 let funa = localStorage.getItem("send");
+funa="rajasurya";
 const nameLogin = (document.querySelector(".nameLogin").textContent =
   funa.toUpperCase());
 //conction//
@@ -29,32 +30,42 @@ trackDelivery.on("value", function (snapshot) {
       key: element.key,
       updateKey: element.val().userId,
     };
-
     globalDelivery.push(user);
   });
-
-  const find1 = globalDelivery.find((mov) => mov?.userName === funa);
-  // console.log(find1.fulldetails[0].total);
-  const details = {
-    cusname: find1.fulldetails[0].customberName,
-    total: find1.fulldetails[0].total,
-    address1: find1.fulldetails[0].address[1],
-    address2: find1.fulldetails[0].address[2],
-    address3: find1.fulldetails[0].address[3],
-    address4: find1.fulldetails[0].address[4],
-    oty: find1.fulldetails[0].oty.length,
-    main: find1.fulldetails[0].productID,
-    key: find1.updateKey,
-    trackKey:find1.key,
-  };
-  display.push(details);
-  displayOrder();
+  collectData();
 });
+let myOrder=[];
+const collectData=function()
+{
 
+  globalDelivery.forEach((find1)=>
+  {
+    if(find1.userName===funa)
+    {
+      // console.log(find1);
+      const details = {
+            cusname: find1.fulldetails[0].customberName,
+            total: find1.fulldetails[0].total,
+            address1: find1.fulldetails[0].address[1],
+            address2: find1.fulldetails[0].address[2],
+            address3: find1.fulldetails[0].address[3],
+            address4: find1.fulldetails[0].address[4],
+            oty: find1.fulldetails[0].oty.length,
+            main: find1.fulldetails[0].productID,
+            key: find1.updateKey,
+            trackKey:find1.key,
+          };
+          myOrder.push(details);
+    }
+   
+  });
+  console.log(myOrder);
+  displayOrder();
+}
 const row = document.querySelector(".add");
 const displayOrder = function () {
   row.innerHTML = "";
-  display.forEach((mov, i) => {
+  myOrder.forEach((mov, i) => {
     const html = `
       <tr>
       <td>${mov.cusname}</td>
@@ -74,41 +85,45 @@ const displayOrder = function () {
       
       <td>${mov.oty * 10}</td>
       <td class="text">....</td>
-      <td><button class="delivery-btn btn">Verify Delivery</button></td>
+      <td><button class="delivery-btn btn" data-set="${i}">Verify Delivery</button></td>
     </tr>
            `;
     row.insertAdjacentHTML("beforebegin", html);
   });
-  //   var deliveryBtn=document.querySelector(".add")
+  verifydetails();
 };
 
-const deliveryBtn = document.querySelector("table");
-const verfy = document.querySelector(".container1");
-const check = document.querySelector(".check");
-const text = document.querySelector(".text");
 const num = document.querySelector(".num");
-
-deliveryBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (e.target.classList.contains("btn")) {
-    verfy.classList.remove("display");
-  }
-});
+const check = document.querySelector(".check");
+let n;
+const verifydetails=function()
+{
+  const verifyButton=document.querySelectorAll(".btn");
+  verifyButton.forEach((mov)=>{
+    mov.addEventListener("click",function(e)
+    {
+      e.preventDefault();
+      n=e.target.dataset.set;
+      const verfy = document.querySelector(".container1");
+      verfy.classList.remove("display");
+      // const idInput = num.value;
+      // const idInput1=myOrder[n].main;
+    })
+  })
+}
 check.addEventListener("click", function (e) {
   e.preventDefault();
   const idInput = num.value;
-  const id = display[0].main;
+  const id = myOrder[n].main;
  console.log(id);
   if (Number(idInput) === id) {
-    const userId = display[0].key;
+    const userId = myOrder[n].key;
     var ref = firebase.database().ref("/Global_delivery_details/" + userId);
     // Update the value
     ref.update({
       OrderStatus: "D",
     });
-     
-
-    const userId1 = display[0].trackKey;
+    const userId1 = myOrder[n].trackKey;
     trackDelivery
       .child(userId1)
       .remove()
@@ -124,4 +139,4 @@ check.addEventListener("click", function (e) {
   } else {
     alert("check customber ID :(");
   }
-});
+ })

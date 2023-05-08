@@ -1,5 +1,6 @@
 "use strict";
 let funa = localStorage.getItem("send");
+funa="rajasurya"
 const nameLogin = (document.querySelector(".nameLogin").textContent =
   funa.toUpperCase());
 //conction//
